@@ -21,7 +21,6 @@ class _SignUpState extends State<SignUp> {
             .createUserWithEmailAndPassword(
                 email: _emailController.text,
                 password: _passwordController.text);
-        // Handle successful sign-up (e.g., navigate to the home screen)
         Navigator.pushReplacementNamed(context, '/home');
       } else {
         print('Passwords do not match.');
