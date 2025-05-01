@@ -1,4 +1,5 @@
 // import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class AddTaskPage extends StatefulWidget {
@@ -13,15 +14,15 @@ class _AddTaskPageState extends State<AddTaskPage> {
   final _descriptionController = TextEditingController();
 
   void _addTask() async {
-    // if (_titleController.text.isNotEmpty &&
-    //     _descriptionController.text.isNotEmpty) {
-    //   await FirebaseFirestore.instance.collection('tasks').add({
-    //     'title': _titleController.text,
-    //     'description': _descriptionController.text,
-    //     'timestamp': Timestamp.now(),
-    //   });
-    //   Navigator.pop(context);
-    // }
+    if (_titleController.text.isNotEmpty &&
+        _descriptionController.text.isNotEmpty) {
+      await FirebaseFirestore.instance.collection('tasks').add({
+        'title': _titleController.text,
+        'description': _descriptionController.text,
+        'timestamp': Timestamp.now(),
+      });
+      Navigator.pop(context);
+    }
   }
 
   @override

@@ -21,7 +21,8 @@ class _SignUpState extends State<SignUp> {
             .createUserWithEmailAndPassword(
                 email: _emailController.text,
                 password: _passwordController.text);
-        Navigator.pushReplacementNamed(context, '/home');
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => SignIn()));
       } else {
         print('Passwords do not match.');
       }

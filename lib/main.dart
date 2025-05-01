@@ -1,10 +1,12 @@
 import 'package:basic_app/Screens/sign_in.dart';
+import 'package:basic_app/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(); // Initialize Firebase
+  await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform); // Initialize Firebase
   runApp(const MyApp());
 }
 
@@ -22,10 +24,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blueGrey,
         ),
         textButtonTheme: TextButtonThemeData(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.transparent),
-            foregroundColor: MaterialStateProperty.all(Colors.white),
-          ),
+          style: ButtonStyle(),
         ),
         pageTransitionsTheme: const PageTransitionsTheme(builders: {
           TargetPlatform.android: CupertinoPageTransitionsBuilder(),

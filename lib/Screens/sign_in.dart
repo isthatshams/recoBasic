@@ -1,4 +1,5 @@
 import 'package:basic_app/Screens/sign_up.dart';
+import 'package:basic_app/Screens/task_list_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +25,8 @@ class _SignInState extends State<SignIn> {
           .signInWithEmailAndPassword(
               email: _emailController.text, password: _passwordController.text);
 
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const TaskListPage()));
     } on FirebaseAuthException catch (e) {
       String errorMessage;
       if (e.code == 'user-not-found') {

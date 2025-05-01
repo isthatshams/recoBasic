@@ -14,7 +14,8 @@ class TaskPage extends StatelessWidget {
         backgroundColor: Colors.redAccent,
       ),
       body: FutureBuilder<DocumentSnapshot>(
-        future: FirebaseFirestore.instance.collection('tasks').doc(taskId).get(),
+        future:
+            FirebaseFirestore.instance.collection('tasks').doc(taskId).get(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -31,7 +32,8 @@ class TaskPage extends StatelessWidget {
               children: [
                 Text(
                   task['title'],
-                  style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 10),
                 Text(
